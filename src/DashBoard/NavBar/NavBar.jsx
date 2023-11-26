@@ -9,20 +9,26 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
     const [dataAdmin] = useAdmin()
     const [dataMember] = useAdmin()
-    const {user, loading} = useContext(Context)
+    const { user, loading } = useContext(Context)
     return (
         <section>
-            <div>
-                <div>
-                {
-                user && dataMember ? <MembersNav></MembersNav>
-                :
-                user && dataAdmin ? <AdminNav></AdminNav>
-                :
-                <UserNav></UserNav>
-            }
+            <div className='bg-blue-600 h-screen'>
+                <div className='  '>
+                    <div className='pt-10 text-xl font-semibold flex flex-col justify-center text-center '>
+                        {
+                            (dataAdmin?.role == "admin") ?
+                                <AdminNav></AdminNav>
+                                // <AdminNav></AdminNav>
+                                :
+                                (dataMember?.role == "member") ?
+                                    <MembersNav></MembersNav>
+                                    :
+                                    <UserNav></UserNav>
+                        }
+                        <NavLink to={`/`}>Home</NavLink>
+                    </div>
+
                 </div>
-                <NavLink to={`/`}>Home</NavLink>
             </div>
 
         </section>

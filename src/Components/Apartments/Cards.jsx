@@ -16,6 +16,7 @@ const Cards = ({ card }) => {
 
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSecure)
+    const [hide , sehide] = useState('')
 
     const handleagreement = () => {
         const userName = user?.displayName
@@ -25,19 +26,19 @@ const Cards = ({ card }) => {
         const apartmentNo = card.apartmentNo
         const rent = card.rent
         const status = 'pending'
-        const agreement = {userName,userEmail,floor,block,apartmentNo,rent,status}
+        const today = new Date();
+        const month = today.getMonth()+1
+        const date = today.getDate()
+        const year = today.getFullYear()
+        const agreementTime = date+"-"+month+"-"+year
+        console.log(agreementTime);
+        const agreement = {userName,userEmail,floor,block,apartmentNo,rent,agreementTime,status}
         console.log(agreement);
 
         axiosLink.post(`/agreements`, agreement)
         .then(res=>{
             console.log("added",res);
-            axiosLink.put(`/users`,{userEmail})
-            .then(res=>{
-                console.log("update",res);
-            })
-            .catch(err=>{
-                console.log(err);
-            })
+            
         })
         .catch(err=>{
             console.log(err);
@@ -65,7 +66,7 @@ const Cards = ({ card }) => {
                     <p>Rent: <span>{card?.rent}</span></p>
                 </div>
                 <div className="card-actions  py-2 flex mx-auto">
-                    <button onClick={handleagreement} className="btn btn-primary">Agreement</button>
+                    <button onClick={handleagreement} className={`btn ${hide} btn-primary`}>Agreement</button>
                 </div>
             </div>
 

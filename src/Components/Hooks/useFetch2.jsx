@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios, { AxiosSecure } from "../Axios/useAxios";
 
 
-const useFetch = (value1, value2, dataValue) => {
+const useFetch2 = (value1, value2, dataValue) => {
     const axiosLink = useAxios(AxiosSecure)
     const { isPending, isError, data, error, refetch } = useQuery({
         queryKey: [value1, value2, dataValue],
@@ -22,4 +22,4 @@ const useFetch = (value1, value2, dataValue) => {
     return [data, refetch]
 };
 
-export default useFetch;
+export default useFetch2;

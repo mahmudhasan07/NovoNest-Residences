@@ -7,7 +7,7 @@ import { Context } from "../ContextAPI/ContextAPI";
 const useAdmin = () => {
     const axiosLink = useAxios(AxiosSecure)
     const {user, loading} = useContext(Context)
-    const { isPending, isError, data: dataAdmin, error, refetch } = useQuery({
+    const { isPending, isError,error, data: dataAdmin,  refetch } = useQuery({
         queryKey: ['user', user?.email],
         enabled : !loading,
         queryFn: async () => {
@@ -16,15 +16,15 @@ const useAdmin = () => {
         }
 
     })
-    if (isPending) {
-        return 'loading...'
-    }
+    // if (isPending) {
+    //     return 'loading...'
+    // }
 
-    if (isError) {
-        return `An Error is + ${error.message}`
-    }
+    // if (isError) {
+    //     return `An Error is + ${error.message}`
+    // }
 
-    return [dataAdmin, refetch, isPending]
+    return [dataAdmin, refetch]
 };
 
 export default useAdmin;

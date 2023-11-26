@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom';
 const MembersRoute = ({children}) => {
     const { user, loading } = useContext(Context)
     const [data, isPending] = useMember()
-    if (loading || isPending) {
+    if (loading && isPending) {
         return `loading`
     }
     if (user && data) {

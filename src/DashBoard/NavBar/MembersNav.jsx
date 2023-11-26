@@ -4,18 +4,18 @@ import { NavLink } from 'react-router-dom';
 const MembersNav = () => {
     return (
         <section>
-            <div className='bg-yellow-500'>
+            <div className=''>
                 <ul>
-                    <NavLink>
+                    <NavLink to={`/dashboard/my-profile`}>
                         <li>My Profile</li>
                     </NavLink>
-                    <NavLink>
+                    <NavLink to={`/dashboard/make-payment`}>
                         <li>Make payment</li>
                     </NavLink>
-                    <NavLink>
+                    <NavLink to={`/dashboard/payment-history`}>
                         <li>Payment History</li>
                     </NavLink>
-                    <NavLink>
+                    <NavLink to={`/dashboard/notice`}>
                         <li>Announcements</li>
                     </NavLink>
                 </ul>

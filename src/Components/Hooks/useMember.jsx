@@ -16,13 +16,13 @@ const useMember = () => {
         }
 
     })
-    if (isPending) {
-        return 'loading...'
-    }
+    // if (isPending) {
+    //     return 'loading...'
+    // }
 
-    if (isError) {
-        return `An Error is + ${error.message}`
-    }
+    // if (isError) {
+    //     return `An Error is + ${error.message}`
+    // }
 
     return [dataMember, refetch, isPending]
 };

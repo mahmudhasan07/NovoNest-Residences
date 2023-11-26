@@ -15,8 +15,9 @@ const Home = () => {
     // console.log(user?.email);
     const [dataAdmin] = useAdmin()
     const [dataMember] = useMember()
-    // console.log(dataAdmin?.email);
-    // console.log(dataMember?.email); 
+
+    console.log(dataAdmin);
+    console.log(dataMember);
     return (
         <section>
             <div>

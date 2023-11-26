@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const AdminNav = () => {
     return (
         <section>
-            <div className="bg-green-600">
+            <div className="">
                 <ul>
                     <NavLink>
                         <li>Admin Profile</li>
