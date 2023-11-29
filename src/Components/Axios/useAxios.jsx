@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useEffect } from 'react';
 
 export const AxiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://novonest-residences.vercel.app'
 
 })
 const useAxios = () => {

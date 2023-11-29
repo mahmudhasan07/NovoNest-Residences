@@ -33,13 +33,15 @@ const Banner = () => {
             <SwiperSlide>
                 <div className="hero lg:h-[500px] " style={{ backgroundImage: 'url(https://i.ibb.co/F6SRmfr/image20.jpg)' }}>
                     <div className="hero-content justify-start z-50 text-neutral-content bg-opacity-20  hero-overlay">
-                        <div >
-                            <div data-aos="fade-up">
+                        <div data-aos="fade-up"
+                            data-aos-offset="500"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-delay="500">
+                            <div>
                                 <h1 className="text-5xl text-white font-bold">Drawing Room</h1>
                             </div>
-                            <p className="py-6 text-gray-50">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                            <div data-aos="fade-up"
-                                data-aos-delay="500"
+                            <p className="py-6 text-gray-50">From the strokes of creativity to the canvas of comfort, welcome to a world where kitchen dreams simmer, bathroom serenity flows, and bedrooms embrace tranquility. Let the artistry of design paint your spaces with inspiration and elegance. Welcome to a masterpiece of home living.</p>
+                            <div
                             >
                                 <button className="btn btn-primary">See Apartment Flats</button>
                             </div>
@@ -52,7 +54,7 @@ const Banner = () => {
                     <div className="hero-content justify-start z-50 text-neutral-content bg-opacity-20  hero-overlay">
                         <div className="w-1/2">
                             <h1 className="text-5xl text-white font-bold">Bed Room</h1>
-                            <p className="py-6 text-gray-50">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                            <p className="py-6 text-gray-50">From the strokes of creativity to the canvas of comfort, welcome to a world where kitchen dreams simmer, bathroom serenity flows, and bedrooms embrace tranquility. Let the artistry of design paint your spaces with inspiration and elegance. Welcome to a masterpiece of home living.</p>
                             <button className="btn btn-primary">See Apartment Flats</button>
                         </div>
                     </div>
@@ -63,7 +65,7 @@ const Banner = () => {
                     <div className="hero-content justify-start z-50 text-neutral-content bg-opacity-20  hero-overlay">
                         <div className="w-1/2">
                             <h1 className="text-5xl text-white font-bold">Kitchen Room</h1>
-                            <p className="py-6 text-gray-50">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                            <p className="py-6 text-gray-50">From the strokes of creativity to the canvas of comfort, welcome to a world where kitchen dreams simmer, bathroom serenity flows, and bedrooms embrace tranquility. Let the artistry of design paint your spaces with inspiration and elegance. Welcome to a masterpiece of home living.</p>
                             <button className="btn btn-primary">See Apartment Flats</button>
                         </div>
                     </div>
@@ -74,7 +76,7 @@ const Banner = () => {
                     <div className="hero-content justify-start z-50 text-neutral-content bg-opacity-20  hero-overlay">
                         <div className="w-1/2">
                             <h1 className="text-5xl text-white font-bold">Bath Room</h1>
-                            <p className="py-6 text-gray-50">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                            <p className="py-6 text-gray-50">From the strokes of creativity to the canvas of comfort, welcome to a world where kitchen dreams simmer, bathroom serenity flows, and bedrooms embrace tranquility. Let the artistry of design paint your spaces with inspiration and elegance. Welcome to a masterpiece of home living.</p>
                             <button className="btn btn-primary">See Apartment Flats</button>
                         </div>
                     </div>
