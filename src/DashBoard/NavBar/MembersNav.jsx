@@ -15,7 +15,7 @@ const MembersNav = () => {
                     <NavLink to={`/dashboard/payment-history`}>
                         <li>Payment History</li>
                     </NavLink>
-                    <NavLink to={`/dashboard/notice`}>
+                    <NavLink to={`/dashboard/announcement`}>
                         <li>Announcements</li>
                     </NavLink>
                 </ul>

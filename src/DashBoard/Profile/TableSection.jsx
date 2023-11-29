@@ -11,7 +11,9 @@ import { Context } from '../../Components/ContextAPI/ContextAPI';
 
 const TableSection = () => {
     const { user } = useContext(Context)
-    const [data] = useFetch2('agreements', "completed")
+    const email = user?.email
+    console.log(email);
+    const [data] = useFetch2('agreements', "complete",email)
     console.log(data);
     return (
         <section>
@@ -19,11 +21,11 @@ const TableSection = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead className='text-lg font-semibold'>
                         <TableRow className=''>
-                            <TableCell className='text-lg font-semibold' align="right">Flat No</TableCell>
-                            <TableCell className='text-lg font-semibold' align="right">Floor No</TableCell>
-                            <TableCell className='text-lg font-semibold' align="right">Block</TableCell>
-                            <TableCell className='text-lg font-semibold' align="right">Rent</TableCell>
-                            <TableCell className='text-lg font-semibold' align="right">Agreement Accept Date</TableCell>
+                            <TableCell className='text-lg font-semibold' align="center">Flat No</TableCell>
+                            <TableCell className='text-lg font-semibold' align="center">Floor No</TableCell>
+                            <TableCell className='text-lg font-semibold' align="center">Block</TableCell>
+                            <TableCell className='text-lg font-semibold' align="center">Rent</TableCell>
+                            <TableCell className='text-lg font-semibold' align="center">Agreement Accept Date</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -39,10 +41,10 @@ const TableSection = () => {
                                         <TableCell component="th" scope="row">
                                             none
                                         </TableCell>
-                                        <TableCell align="right">none</TableCell>
-                                        <TableCell align="right">none</TableCell>
-                                        <TableCell align="right">none</TableCell>
-                                        <TableCell align="right">none</TableCell>
+                                        <TableCell align="center">none</TableCell>
+                                        <TableCell align="center">none</TableCell>
+                                        <TableCell align="center">none</TableCell>
+                                        <TableCell align="center">none</TableCell>
                                     </TableRow>
                                     :
                                     data?.map((element) => (
@@ -50,13 +52,13 @@ const TableSection = () => {
                                             key={element?.name}
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         >
-                                            <TableCell component="th" scope="row">
+                                            <TableCell component="th" align="center" scope="row">
                                                 {element?.apartmentNo ? element?.apartmentNo : "none"}
                                             </TableCell>
-                                            <TableCell align="right">{element?.floor ? element?.floor : "none"}</TableCell>
-                                            <TableCell align="right">{element?.block ? element?.block : 'none'}</TableCell>
-                                            <TableCell align="right">{element?.rent ? element?.rent : "none"}</TableCell>
-                                            <TableCell align="right">{element?.agreementaccpectdate ? element?.agreementaccpectdate : "none"}</TableCell>
+                                            <TableCell align="center">{element?.floor ? element?.floor : "none"}</TableCell>
+                                            <TableCell align="center">{element?.block ? element?.block : 'none'}</TableCell>
+                                            <TableCell align="center">{element?.rent ? element?.rent : "none"}</TableCell>
+                                            <TableCell align="center">{element?.agreementAcceptTime ? element?.agreementAcceptTime : "none"}</TableCell>
                                         </TableRow>
                                     ))
 }

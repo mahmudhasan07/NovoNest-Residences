@@ -6,7 +6,7 @@ const UserNav = () => {
             <div>
                 <ul>
                 <NavLink to={`/dashboard/my-profile`}><li>My Profile</li></NavLink>
-                <NavLink><li>Announcements</li></NavLink>
+                <NavLink to={`/dashboard/announcement`}><li>Announcements</li></NavLink>
                 </ul>
             </div>
         </section>

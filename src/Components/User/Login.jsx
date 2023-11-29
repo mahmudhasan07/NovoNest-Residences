@@ -27,8 +27,8 @@ const Login = () => {
             .then(res => {
                 console.log(res);
                 Swal.fire({
-                    title: "Registration Successful",
-                    text: "Registration Successfully Complete",
+                    title: "Log-In Successful",
+                    text: "Login Successfully Complete",
                     icon: "success"
                 });
                 navigate('/')

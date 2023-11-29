@@ -3,7 +3,7 @@ import useAxios, { AxiosSecure } from "../Axios/useAxios";
 
 
 const useFetch = (value1, value2) => {
-    console.log(value1, value2);
+    // console.log(value1, value2);
     const axiosLink = useAxios(AxiosSecure)
     const { isPending, isError, data, error, refetch } = useQuery({
         queryKey: [value1, value2],
@@ -18,7 +18,7 @@ const useFetch = (value1, value2) => {
     }
 
     if (isError) {
-        return  
+        return  `An Error is + ${error.message}`
     }
 
     return [data, refetch]

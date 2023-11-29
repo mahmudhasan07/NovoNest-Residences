@@ -1,6 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../ContextAPI/ContextAPI";
 import useAxios, { AxiosSecure } from "../Axios/useAxios";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Swal from 'sweetalert2'
 // import {
 //     Card,
 //     CardHeader,
@@ -13,6 +16,9 @@ import useAxios, { AxiosSecure } from "../Axios/useAxios";
 
 const Cards = ({ card }) => {
     const [img, setimg] = useState(card.image1)
+    useEffect(()=>{
+        AOS.init()
+    },[])
 
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSecure)
@@ -33,11 +39,25 @@ const Cards = ({ card }) => {
         const agreementTime = date+"-"+month+"-"+year
         console.log(agreementTime);
         const agreement = {userName,userEmail,floor,block,apartmentNo,rent,agreementTime,status}
-        console.log(agreement);
+        // console.log(agreement);
 
         axiosLink.post(`/agreements`, agreement)
         .then(res=>{
             console.log("added",res);
+            if (res.data.message == 'Already added this flat'){
+                Swal.fire({
+                    title: "Already Request for Agreement",
+                    text: "You are already request for this flat booking",
+                    icon: "warning"
+                });
+            }
+            else{
+                Swal.fire({
+                    title: "Agreement Successful",
+                    text: "Agreement Successfully Complete",
+                    icon: "success"
+                });
+            }
             
         })
         .catch(err=>{
@@ -48,7 +68,10 @@ const Cards = ({ card }) => {
     }
     return (
         <section>
-            <div className="card lg:w-96  bg-base-100 h-full flex flex-col border-blue-500 border-2 shadow-xl">
+            <div data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-delay={`${card?.apartmentNo*100}`} className="card lg:w-96  bg-base-100 h-full flex flex-col border-blue-500 border-2 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={img} alt="Room" className="rounded-xl h-64" />
                 </figure>

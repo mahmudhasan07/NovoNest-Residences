@@ -6,7 +6,7 @@ import useAxios, { AxiosSecure } from "../Axios/useAxios";
 export const Context = createContext()
 const ContextAPI = ({ children }) => {
     const [user, setuser] = useState()
-    const [loading, setloading] = useState(false)
+    const [loading, setloading] = useState(true)
     const axiosLink = useAxios(AxiosSecure)
     const auth = getAuth(app)
     const provider = new GoogleAuthProvider();
@@ -46,12 +46,14 @@ const ContextAPI = ({ children }) => {
                     .then(res => {
                         // console.log("paise",res.data);
                         localStorage.setItem("token", res.data)
+                        setloading(false)
                     })
             }
             else{
                 localStorage.removeItem('token')
+                setloading(false)
             }
-            setloading(false)
+            
         })
     }, [auth,axiosLink])
 

@@ -24,7 +24,7 @@ const useMember = () => {
     //     return `An Error is + ${error.message}`
     // }
 
-    return [dataMember, refetch, isPending]
+    return [dataMember, isPending]
 };
 
 export default useMember;

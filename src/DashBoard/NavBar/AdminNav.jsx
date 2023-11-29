@@ -5,21 +5,21 @@ const AdminNav = () => {
     return (
         <section>
             <div className="">
-                <ul>
-                    <NavLink>
-                        <li>Admin Profile</li>
+                <ul className="flex flex-wrap lg:flex-col lg:gap-0 gap-5">
+                    <NavLink to={`/dashboard/admin-profile`}>
+                        <li className="my-2">Admin Profile</li>
                     </NavLink>
-                    <NavLink>
-                        <li>Manage Members</li>
+                    <NavLink to={`manage-members`}>
+                        <li className="my-2">Manage Members</li>
                     </NavLink>
-                    <NavLink>
-                        <li>Make Announcement</li>
+                    <NavLink to={`make-notice`}>
+                        <li className="my-2">Make Announcement</li>
                     </NavLink>
-                    <NavLink>
-                        <li>Agreement Requests</li>
+                    <NavLink to={`agreement-request`}>
+                        <li className="my-2">Agreement Requests</li>
                     </NavLink>
-                    <NavLink>
-                        <li>Manage Coupons</li>
+                    <NavLink to={`manage-coupon`}>
+                        <li className="my-2">Manage Coupons</li>
                     </NavLink>
                 </ul>
             </div>

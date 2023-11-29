@@ -13,9 +13,6 @@ const Apartments = () => {
     const [start, setstart] = useState(0)
     const [end, setend] = useState(6)
     console.log(data);
-    // useEffect(()=>{
-    //     setsort('')
-    // },[item])
 
     const page = Math.ceil(data.length / 6)
     const totalpage = [...Array(page).keys()]

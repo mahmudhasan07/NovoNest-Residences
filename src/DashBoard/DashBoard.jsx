@@ -5,11 +5,11 @@ import NavBar from "./NavBar/NavBar";
 const DashBoard = () => {
     return (
         <section>
-            <div className="flex justify-around h-screen">
-                <div className="w-1/4 h-auto bg-blue-600 my-auto">
+            <div className="flex flex-wrap gap-5 h-screen">
+                <div className="lg:w-1/5 w-full h-auto bg-blue-600">
                 <NavBar></NavBar>
                 </div>
-                <div className="w-2/4 h-auto my-10">
+                <div className="lg:w-3/4 h-auto my-10">
                     <Outlet></Outlet>
                 </div>
             </div>

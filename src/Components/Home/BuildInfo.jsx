@@ -7,18 +7,18 @@ const BuildInfo = () => {
         AOS.init()
     },[])
     return (
-        <section className="flex lg:my-16 my-8">
+        <section className="flex flex-wrap lg:my-16 my-8">
             <div data-aos="fade-right"
                 data-aos-offset="500"
                 data-aos-easing="ease-in-sine"
-                         className="flex-1">
+                         className="lg:flex-1">
                 <img className="w-10/12 mx-auto rounded-lg" src="https://i.ibb.co/3WDj4xj/Screenshot-2023-11-24-212501.png" alt="" />
             </div>
             <div data-aos="fade-right"
             data-aos-offset="500"
             data-aos-easing="ease-in-sine"
             data-aos-delay="400"
-             className="flex-1">
+             className="lg:flex-1 p-1">
                 <h1 className="text-2xl text-center font-bold my-2">Details Of Your Building </h1>
                 <h1><span className="text-base font-semibold text-black">Name: </span>Novo Nest Residences</h1>
                 <h1><span className="text-base font-semibold text-black">Location:</span> Gulshan Avenue, Gulshan, Dhaka</h1>

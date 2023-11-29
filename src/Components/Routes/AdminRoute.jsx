@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import useAdmin from "../Hooks/useAdmin";
 import { Navigate } from "react-router-dom";
+import { Context } from "../ContextAPI/ContextAPI";
 
 
-const AdminRoute = ({children}) => {
+const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(Context)
-    const [data, isPending] = useAdmin()
-    if (loading && isPending) {
+    const [dataAdmin, isPending] = useAdmin()
+    if (loading || isPending) {
         return `loading`
     }
-    if (user && data) {
+    if (user && dataAdmin) {
         return children
     }
     return <Navigate to={`/login`}></Navigate>

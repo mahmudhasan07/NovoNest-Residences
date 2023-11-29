@@ -1,15 +1,19 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../ContextAPI/ContextAPI";
 import Swal from 'sweetalert2'
+import useFetch from "../Hooks/useFetch";
+import AOS from 'aos'
 
 
 const Coupons = () => {
     const { user } = useContext(Context)
+    const [data] = useFetch('coupons')
+    console.log(data);
     const handlecoupon = (data) => {
-        if (user){
+        if (user) {
             console.log(data);
         }
-        else{
+        else {
             Swal.fire({
                 title: "Can't get coupon",
                 text: "You are not a user, please login first and get the coupon",
@@ -19,33 +23,53 @@ const Coupons = () => {
 
     }
     return (
-        <section className="flex justify-center gap-5">
-            <div className="card w-60 border-2 p-2">
-                <h1 className="text-xl font-semibold">New Rent Discount</h1>
-                <h1 className="font-semibold">5% Off</h1>
-                <p>Pay up to 50,000 tk get the 5% off of your rent</p>
-                <button onClick={() => handlecoupon('GCD-5')} className="btn btn-sm mt-auto w-fit ml-auto">Collect Coupon</button>
-            </div>
-            <div className="card w-60 border-2 p-2">
-                <h1 className="text-xl font-semibold">Winter Rent Discount</h1>
-                <h1 className="font-semibold">15% Off</h1>
-                <p>Rent our flats in winter and get the 15% off of your rent</p>
-                <button onClick={() => handlecoupon('GCD-15')} className="btn btn-sm w-fit mt-auto ml-auto">Collect Coupon</button>
-            </div>
-            <div className="card w-60 border-2 p-2">
-                <h1 className="text-xl font-semibold">Happy New Year Discount</h1>
-                <h1 className="font-semibold">18% Off</h1>
-                <p>If you rent our flat before ending happy new year get the 18% off of your rent</p>
-                <button onClick={() => handlecoupon('GCD-18')} className="btn btn-sm w-fit mt-auto ml-auto">Collect Coupon</button>
-            </div>
-            <div className="card w-60 border-2 p-2">
-                <h1 className="text-xl font-semibold">Happy New Year Discount</h1>
-                <h1 className="font-semibold">20% Off</h1>
-                <p>If you rent our flat get the 18% off of your rent</p>
-                <button onClick={() => handlecoupon('GCD-20')} className="btn btn-sm w-fit mt-auto ml-auto">Collect Coupon</button>
+        <section className="">
+            <h1 className="text-3xl text-center font-bold mb-10">Coupons Section</h1>
+            <div className="flex flex-wrap justify-center gap-5">
+                {
+                    data == "l" ?
+                        <h1>loading</h1>
+                        :
+                        data?.map((element, idx) => <Coupon key={element._id} card={element} id={idx}></Coupon>)
+                }
             </div>
         </section>
     );
 };
+
+const Coupon = ({ card, id }) => {
+    console.log(id);
+    useEffect(() => {
+        AOS.init()
+    }, [])
+    return (
+        <section>
+            <div data-aos="fade-right"
+                // data-aos-offset="500"
+                data-aos-easing="ease-in-sine"
+                data-aos-delay={`${id * 300}`} className="border-2 h-full rounded-lg flex flex-col border-black p-2 w-60">
+                <h1 className="text-xl font-bold">{card.title}</h1>
+                <h1 className="text-lg font-semibold">{card.discount}% off</h1>
+                <p>{card.note}</p>
+                <div className="mt-auto">
+                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                    <button className="btn btn-sm  w-full my-2" onClick={() => document.getElementById('my_modal_1').showModal()}>Collect</button>
+                    <dialog id="my_modal_1" className="modal">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg">Copy copy your coupon code</h3>
+                            <p className="py-4">Your coupone code is <span className="font-semibold">{card.code}</span></p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+        </section>
+    )
+}
 
 export default Coupons;
