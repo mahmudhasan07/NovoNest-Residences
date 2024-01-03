@@ -2,6 +2,6 @@ This is an apartment owner website. Where he has flats for rent and maintain the
 5 main points of my website
 
 1.I made sorting system where you can i find easily to range rent. <br>
-2. i use many tables so that you can esily can understand
+2. i use many tables so that you can easily can understand
 
 Live Link : https://novonest-realty.web.app
